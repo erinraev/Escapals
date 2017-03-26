@@ -1,0 +1,108 @@
+<div class="create-wrapper">
+  <div class="create-container">
+
+    <i class="fa fa-compass compass-icon" aria-hidden="true"></i>
+    <h1>Create an Escape</h1>
+    <form class="create-form" name="createForm" ng-model="createForm">
+
+  <!-- Name -->
+      <div class="form-row-wrapper">
+        <p class="small uppercase form-title">Name</p>
+        <div class="row-titles form-row">
+          <p>Give your escape a title</p>
+        </div>
+        <div class="name-row form-row">
+          <input name="name" type="text" ng-model="newEvent.name"><br>
+        </div>
+      </div>
+
+
+
+<!-- Location -->
+      <div class="form-row-wrapper">
+        <p class="small uppercase form-title">Location</p>
+        <div class="row-titles form-row">
+          <p class="input-1">*City</p>
+          <p class="input-2">*State</p>
+          <p class="input-3">*Zip</p>
+        </div>
+        <div class="location-row form-row">
+          <input class="input-1" name="city" type="text" ng-model="newEvent.city" ng-required="true"><br>
+          <input class="input-2" name="state" type="text" ng-model="newEvent.state" ng-required="true"><br>
+          <input class="input-3" name="zipcode" type="number" ng-model="newEvent.zipcode" ng-required="true"><br>
+        </div>
+      </div>
+
+
+    <!-- Date -->
+        <div class="form-row-wrapper">
+          <p class="small uppercase form-title">Date and Time</p>
+          <div class="date-wrapper">
+            <div class="row-titles form-row">
+              <p class="two-column">Date</p>
+              <p class="two-column">Time</p>
+            </div>
+            <div class="date-row form-row">
+              <input name="date" type="date" placeholder="MM/DD/YYYY" ng-model="newEvent.date"><br>
+              <input name="time" type="time" placeholder="00:00" ng-model="newEvent.time"><br>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Guests -->
+        <div class="form-row-wrapper">
+          <p class="small uppercase form-title">Who Can Join</p>
+          <div class="experience-wrapper">
+            <div class="row-titles form-row">
+              <p >Experience Level</p>
+            </div>
+            <div class="experience-row form-row">
+              <select class="form-row select-box" name="experience">
+                <option value="beginner" ng-model="newEvent.experience.beginner">Beginner</option>
+                <option value="intermediate" ng-model="newEvent.experience.intermediate">Intermediate</option>
+                <option value="expert" ng-model="newEvent.experience.expert">Expert</option>
+                <option value="all" ng-model="newEvent.experience.all">All Levels</option>
+              </select>
+            </div>
+          </div>
+          <div class="date-wrapper">
+            <div class="row-titles form-row">
+              <p class="two-column">Gender</p>
+              <p class="two-column">Max # of People</p>
+              <p class="two-column">Price / Person</p>
+            </div>
+            <div class="date-row form-row">
+              <select class="select-box two-column" name ="gender">
+                <option value="mixed" ng-model="newEvent.gender.mixed">Doesn't Matter</option>
+                <option value="male" ng-model="newEvent.gender.male">Boys Only</option>
+                <option value="female" ng-model="newEvent.gender.female">Girls Only</option>
+              </select>
+              <input name="numpeople" type="number" min="1" max="30+" step="1" ng-model="newEvent.numpeople"><br>
+              <input name="price" type="text" placeholder="$" ng-model="newEvent.price"><br>
+            </div>
+          </div>
+        </div>
+
+    <!-- Description -->
+        <div class="form-row-wrapper">
+          <p class="small uppercase form-title">Description</p>
+          <div class="row-titles form-row">
+            <p>Describe your event</p>
+          </div>
+          <div class="description-row form-row">
+            <input name="description" type="text" ng-model="newEvent.description"><br>
+          </div>
+        </div>
+
+    </form>
+
+  </div>
+
+  <div class="top-footer-image">
+    <img class="compass-graphic" src="./img/compass.png">
+  </div>
+  </div>
+
+
+</div>

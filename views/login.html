@@ -1,0 +1,11 @@
+<div class="login-wrapper gradient-bg">
+    <form class="login-form" name="loginForm" ng-model="loginForm">
+      <div class="login-row">
+        <p class="login-title">*<i class="fa fa-envelope-o" aria-hidden="true"></i> Email</p>
+        <input  name="email" type="text" ng-model="newUser.email" ng-required="true"><br>
+        <p class="login-title">*<i class="fa fa-key" aria-hidden="true"></i> Password </p>
+        <input name="password" type="text" ng-model="newUser.password" ng-required="true"><br>
+          <button class="submit-button button" ng-click="login(user)">Log In</button>
+      </div>
+    </form>
+</div>
