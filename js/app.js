@@ -27,6 +27,24 @@ angular.module('escapalsApp', ['ui.router'])
      controller: 'mainCtrl'
    })
 
+   .state('profile', {
+    url: '/my-profile',
+    templateUrl: 'views/profile.html',
+    controller: 'mainCtrl'
+  })
+
+  .state('search', {
+   url: '/find-escapes',
+   templateUrl: 'views/findescape.html',
+   controller: 'mainCtrl'
+ })
+
+ .state('test', {
+  url: '/test',
+  templateUrl: 'views/test.html',
+  controller: 'mainCtrl'
+})
+
      $urlRouterProvider
        .otherwise('/')
 

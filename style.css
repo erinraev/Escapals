@@ -1,3 +1,7 @@
+html, body {
+  height: 100%;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -48,6 +52,10 @@ p, span, li {
   text-transform: uppercase;
 }
 
+.line-break {
+  margin: 30px 0;
+}
+
 .logo-text {
   font-family: 'Covered By Your Grace', cursive;
   font-size: 2em;
@@ -86,6 +94,11 @@ p, span, li {
   background: linear-gradient(135deg, #e7f9e5 0%,#c3d8b1 44%,#94A857 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7f9e5', endColorstr='#94A857',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
+
+/*.page-container {
+   min-height:100%;
+   position:relative;
+}*/
 
 /* ---- Header Styles ---- */
 
@@ -136,10 +149,10 @@ p, span, li {
   width: 300px;
 }
 
+
 .top-footer-image {
   text-align: center;
   margin-bottom: -7px;
-  margin-bottom
 }
 
 .main-footer {
@@ -482,6 +495,106 @@ p, span, li {
   width: 100%;
 }
 
+/* ---- Profile Page ---- */
+
+.profile-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-content {
+  flex-grow: 1;
+}
+
+.profile-header {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.profile-image {
+  background: #fff;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  margin-bottom: -90px;
+}
+
+.user-information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 70px 0;
+}
+
+.user-information h1 {
+  margin-bottom: 10px;
+}
+
+.essential-info {
+  text-align: center;
+  width: 100%;
+}
+
+.essential-info ul li {
+  padding: 0 1em;
+}
+
+.user-activities, .user-trips {
+  width: 100%;
+  text-align: center;
+  margin: 30px 0;
+}
+
+/* ---- Search Escapes Page ---- */
+
+.search-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-side-navigation, .side-search-criteria {
+  display: none;
+}
+
+.search-content {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.search-header {
+  height: 300px;
+  background: url('./img/trip-items.jpg');
+  background-size: cover;
+
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.criteria-row {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.mobile-search-criteria {}
+
+.event-box {
+  text-align: center;
+  height: 250px;
+  width: 300px;;
+  background: red;
+  margin: 20px;
+}
+
+.event-box p {
+  padding: 10px 0;
+}
+
 /* ---- Media Queries ---- */
 
 @media only screen and (max-width: 575px) {
@@ -564,6 +677,12 @@ p, span, li {
     margin: 0 40px;
   }
 
+  /* ---- Profile ---- */
+
+  .essential-info ul li {
+    padding: 0 2em;
+  }
+
   /* --- Footer ---- */
 
 
@@ -583,6 +702,63 @@ p, span, li {
   .top-footer-image {
     text-align: left;
     margin-left: -5px;
+  }
+
+}
+
+@media only screen and (min-width: 900px) {
+
+  /* ---- Profile ---- */
+  .side-navigation {
+    flex-basis: 20%;
+    background: #2d3239;
+  }
+
+  .profile-content {
+    flex-grow: 1;
+  }
+
+  .essential-info ul li {
+    padding: 0 4em;
+  }
+
+}
+
+@media only screen and (min-width: 1000px) {
+  /* --- Search ---- */
+
+  .search-side-navigation {
+    display: flex;
+    justify-content: center;
+    flex-basis: 20%;
+    background: #2d3239;
+  }
+
+  .side-search-criteria {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: inherit;
+    background: inherit;
+    margin: 70px 10px;
+  }
+
+  .side-search-criteria p {
+    margin: 20px 0;
+  }
+
+  #search-activities p {
+    text-align: center;
+  }
+
+  #search-activities .icon-box {
+    height: 20px;
+    margin: 0 15px;
+  }
+
+  #search-activities .activity-icon {
+  -webkit-filter: invert(80%); /* Safari 6.0 - 9.0 */
+   filter: invert(80%);
   }
 
 }
