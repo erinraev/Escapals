@@ -1,0 +1,122 @@
+<div class="search-wrapper">
+  <div class="search-side-navigation">
+    <div class="side-search-criteria">
+      <div class="criteria-row">
+        <p class="uppercase white-font">Location</p>
+        <input ng-model='location.city' type="text" placeholder="City">
+      </div>
+      <div class="criteria-row">
+        <p class="uppercase white-font">Date</p>
+        <input name="date" type="date" placeholder="MM/DD/YYYY" ng-model="event.date"><br>
+      </div>
+      <div id="search-activities">
+        <p class="uppercase white-font">Activity Type</p>
+          <p class="light-green-font">Activity Type (Check all that apply)</p>
+        <div class="criteria-row interests-row">
+          <!-- First Icon Row -->
+          <div class="icon-row">
+            <div class="hiking icon-box">
+              <img class="activity-icon" src="./img/svg/008-hiking.svg">
+              <input class="checkbox" name="hiking" type="checkbox" ng-model="event.interests.hiking"><br>
+            </div>
+            <div class="camping icon-box">
+              <img class="activity-icon" src="./img/svg/002-night-camping.svg">
+              <input class="checkbox" name="camping" type="checkbox" ng-model="event.interests.camping"><br>
+            </div>
+          </div>
+          <div class="icon-row">
+            <div class="boating icon-box">
+              <img class="activity-icon" src="./img/svg/006-man-in-canoe.svg">
+              <input class="checkbox" name="boating" type="checkbox" ng-model="event.interests.boating"><br>
+            </div>
+            <div class="climbing icon-box">
+              <img class="activity-icon" src="./img/svg/007-climbing-with-rope.svg">
+              <input class="checkbox" name="climbing" type="checkbox" ng-model="event.interests.climbing"><br>
+            </div>
+          </div>
+              <!-- Second Icon Row -->
+          <div class="icon-row">
+            <div class="winter icon-box">
+              <img class="activity-icon" src="./img/svg/001-ski-lift.svg">
+              <input class="checkbox" name="winter" type="checkbox" ng-model="event.interests.winter"><br>
+            </div>
+            <div class="fishing icon-box">
+              <img class="activity-icon" src="./img/svg/003-fishing-man.svg">
+              <input class="checkbox" name="fishing" type="checkbox" ng-model="event.interests.fishing"><br>
+            </div>
+          </div>
+          <div class="icon-row">
+            <div class="biking icon-box">
+              <img class="activity-icon" src="./img/svg/004-bicycle-rider.svg">
+              <input class="checkbox" name="biking" type="checkbox" ng-model="event.interests.biking"><br>
+            </div>
+            <div class="horseriding icon-box">
+              <img class="activity-icon" src="./img/svg/005-horse-riding.svg">
+              <input class="checkbox" name="horseriding" type="checkbox" ng-model="event.interests.horseriding"><br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="criteria-row">
+        <p class="uppercase white-font">Experience Level</p>
+        <select class="form-row select-box" name="experience" ng-model="experience">
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="expert">Expert</option>
+          <option value="">All Levels</option>
+        </select>
+      </div>
+      <div class="criteria-row">
+        <p class="uppercase white-font">Gender</p>
+        <select class="form-row select-box" name="gender" ng-model="gender">
+          <option value=""></option>
+          <option value="does">Doesn't Matter</option>
+          <option value="boys">Boys Only</option>
+          <option value="girls">Girls Only</option>
+        </select>
+      </div>
+      <div class="criteria-row">
+        <p class="uppercase white-font"># of People</p>
+        <input style="width: 75px;" name="numpeople" type="number" min="1" max="30+" step="1" ng-model="Event.numpeople">
+      </div>
+      <div class="criteria-row">
+        <p class="uppercase white-font">Max Price</p>
+        <input style="width: 75px;" name="price" type="text" placeholder="$" ng-model="event.price">
+      </div>
+    </div>
+  </div>
+  <div class="search-content">
+
+    <div class="search-header gradient-bg">
+    </div>
+
+    <div class="search-container">
+      <h1 class="logo-text large">Find Your Adventure</h1>
+
+
+      <div class="mobile-search-criteria">
+
+      </div>
+
+      <div class="search-results">
+        <div class="event-row" ng-repeat="event in events | filter: location | filter: experience | filter: gender">
+          <div class="event-box" ng-click="viewEvent(event.id)">
+            <p class="uppercase small">{{event.name}}</p>
+            <img class="activity-icon" ng-src="{{event.activityTypes[0].image_url}}">
+          </div>
+          <div class="event-description">
+            <ul class="event-criteria">
+              <li>{{event.experience_level}}</li>
+              <li>{{event.gender}}</li>
+              <li>{{event.max_num_people}}</li>
+              <li>${{event.price}}</li>
+            </ul>
+            <p>{{event.description}}</p>
+          </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

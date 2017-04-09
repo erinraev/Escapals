@@ -1,0 +1,43 @@
+<div class="event-info-wrapper">
+
+
+  <div class="event-header profile-header gradient-bg">
+    <img class="profile-image event-image" ng-src="{{event.image_url}}">
+  </div>
+
+  <div class="event-info-container">
+
+      <div class="event-information">
+        <div class="main-event-info">
+          <h1 class="logo-text large">{{event.name}}</h1>
+          <div class="essential-info small">
+            <ul>
+              <li>{{event.city}}, {{event.state}}</li>
+              <li>{{event.start_date}} - {{event.end_date}}</li>
+              <li>{{event.start_time}}</li>
+            </ul>
+          </div>
+
+          <div class="event-activities">
+              <p class="small uppercase">Activities</p>
+              <img class="activity-icon" ng-src="{{event.activityTypes[0].image_url}}">
+            </div>
+
+          <div class="event-trips">
+            <p class="small uppercase line-break">Who Can Join</p>
+            <div class="essential-info small">
+              <ul>
+                <li>{{event.experience_level}}</li>
+                <li>{{event.gender}}</li>
+                <li>{{event.max_num_people}}</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      <div class="guest-info">
+      </div>
+    </div>
+  </div>
+</div>
