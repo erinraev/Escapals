@@ -4,7 +4,7 @@
     <i class="fa fa-compass compass-icon" aria-hidden="true"></i>
     <h1>Create an Escape</h1>
     <div class="create-form-wrapper">
-      <form class="create-form" name="createForm" ng-model="createForm">
+      <form class="create-form" name="eventForm" novalidate>
 
     <!-- <!- Name -->
         <div class="form-row-wrapper">
@@ -13,7 +13,7 @@
             <p>Give your escape a title</p>
           </div>
           <div class="name-row form-row">
-            <input name="name" type="text" ng-model="newEvent.name"><br>
+            <input name="name" type="text" ng-model="newEvent.name" ng-required="true"><br>
           </div>
         </div>
 
@@ -44,7 +44,7 @@
                 <p class="two-column">End Date (optional)</p>
               </div>
               <div class="date-row form-row">
-                <input name="date" type="date" placeholder="MM/DD/YYYY" ng-model="newEvent.startDate"><br>
+                <input name="date" type="date" placeholder="MM/DD/YYYY" ng-model="newEvent.startDate" ng-required="true"><br>
                 <input name="date" type="date" placeholder="MM/DD/YYYY" ng-model="newEvent.endDate"><br>
               </div>
               <div class="row-titles form-row">
@@ -52,7 +52,7 @@
                 <p class="two-column">End Time (optional)</p>
               </div>
               <div class="date-row form-row">
-                <input name="time" type="time" placeholder="00:00" ng-model="newEvent.startTime"><br>
+                <input name="time" type="time" placeholder="00:00" ng-model="newEvent.startTime" ng-required="true"><br>
                 <input name="time" type="time" placeholder="00:00" ng-model="newEvent.endTime"><br>
               </div>
             </div>
@@ -82,7 +82,7 @@
                 <p >Experience Level</p>
               </div>
               <div class="experience-row form-row">
-                <select class="form-row select-box" name="experience" ng-model="newEvent.experienceLevel">
+                <select class="form-row select-box" name="experience" ng-model="newEvent.experienceLevel" ng-required="true">
                   <option value="beginner" selected>Beginner</option>
                   <option value="intermediate">Intermediate</option>
                   <option value="expert">Expert</option>
@@ -97,12 +97,12 @@
                 <p class="two-column">Price / Person</p>
               </div>
               <div class="date-row form-row">
-                <select class="select-box two-column" name="gender" ng-model="newEvent.gender">
+                <select class="select-box two-column" name="gender" ng-model="newEvent.gender" ng-required="true">
                   <option value="mixed">Doesn't Matter</option>
                   <option value="male">Boys Only</option>
                   <option value="female">Girls Only</option>
                 </select>
-                <input name="numpeople" type="number" min="1" max="30+" step="1" ng-model="newEvent.maxNumPeople"><br>
+                <input name="numpeople" type="number" min="1" max="30+" step="1" ng-model="newEvent.maxNumPeople" ng-required="true"><br>
                 <input name="price" type="text" placeholder="$" ng-model="newEvent.price"><br>
               </div>
             </div>
@@ -120,7 +120,7 @@
           </div>
 
       </form>
-
+      <p ng-show="eventForm.$touched && eventForm.$invalid">*Please fill out all required fields</p>
       <button class="submit-button button" ng-click="createEvent(newEvent)">Create Event</button>
     </div>
   </div>

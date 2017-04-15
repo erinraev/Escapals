@@ -24,7 +24,7 @@ var db = app.get('db');
 
 app.get('/api/activities', function(req, res) {
   db.get_activities(function(err, activities){
-    res.status(200).send(activities)
+    return res.status(200).send(activities)
   });
 });
 
@@ -32,36 +32,15 @@ app.get('/api/events/:id', function(req, res) {
   console.log("this is req.params", req.params)
   db.get_event([req.params.id], function(err, event){
     console.log('this is event', event)
-
     if (event.length) {
       var event = event[0];
       db.get_event_activities([event.id], function (err, activityTypes) {
         event.activityTypes = activityTypes;
-        res.status(200).send(event);
+        return res.status(200).send(event);
       });
-    } else {
-      res.send();
     }
   });
 });
-
-// How do you get city with space
-// app.get('/api/events/:city', function(req, res) {
-//   console.log("this is req.params", req.params)
-//   db.get_events([req.params.city], function(err, events){
-//     console.log('this is event', events)
-//
-//     if (events.length) {
-//       var events = events[0];
-//       db.get_event_activities([events.id], function (err, activityTypes) {
-//         events.activityTypes = activityTypes;
-//         res.status(200).send(events);
-//       });
-//     } else {
-//       res.send();
-//     }
-//   });
-// });
 
 
 app.get('/api/events', function(req, res) {
@@ -78,6 +57,7 @@ app.get('/api/events', function(req, res) {
   });
 });
 
+
 app.get('/api/users', function(req, res) {
   db.get_users(function(err, users){
     console.log('12334545689', users)
@@ -87,11 +67,14 @@ app.get('/api/users', function(req, res) {
       db.get_user_activities([user.id], function (err, activityTypes) {
         user.activityTypes = activityTypes;
         count++;
-        if (count === limit) res.status(200).send(users);
+        if (count === limit) {
+          return res.status(200).send(users);
+        }
       });
     });
   });
 });
+
 
 app.get('/api/users/:id', function(req, res) {
   db.get_user([req.params.id], function(err, user){
@@ -101,10 +84,8 @@ app.get('/api/users/:id', function(req, res) {
       var user = user[0];
       db.get_user_activities([user.id], function (err, activityTypes) {
         user.activityTypes = activityTypes;
-        res.status(200).send(user);
+        return res.status(200).send(user);
       });
-    } else {
-      res.send();
     }
   });
 });
@@ -142,7 +123,7 @@ app.post('/api/events', function(req, res) {
           res.err(404);
         } else {
           if (count === activityTypesCount) {
-            res.send('ok')
+            return res.send('ok')
           }
         }
       });
@@ -177,7 +158,7 @@ app.post('/api/users', function(req, res) {
       db.create_user_activities([userId, activityType], function (err, response) {
         count++;
         if (count === activityTypesCount) {
-          res.status(200).send('ok')
+          return res.status(200).send('ok')
         }
       });
     });

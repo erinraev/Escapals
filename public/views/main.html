@@ -1,3 +1,17 @@
+<!-- <header class="top-navigation">
+  <div class="escapals-logo">
+    <p class="logo-text" ui-sref="home">Escapals</p>
+  </div>
+  <div class="sign-up button" ui-sref="signup" ng-show="showLogin">
+    {{mainUser}}
+    <span class="white-font" >Join</span>
+  </div>
+  <div class="log-in button" ui-sref="login">
+    <span>Log In</span>
+  </div>
+</header> -->
+
+
 <div class="header-background">
   <p class="white-font medium">let's go on an</p>
   <p class="white-font logo-text large">adventure</p>
@@ -14,7 +28,7 @@
     <h2>-- Popular Destinations --</h2>
 
     <div class="destinations-wrapper">
-      <div class="image-box large-box hover-zoom">
+      <div class="image-box large-box hover-zoom" ng-click="viewCity(Salt)">
         <div class="layer">
           <p class="white-font small">Salt Lake City</p>
         </div>

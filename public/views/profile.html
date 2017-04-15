@@ -4,22 +4,24 @@
   <div class="profile-content">
 
     <div class="profile-header gradient-bg">
-      <div class="profile-image">
-      </div>
+      <img class="profile-image" ng-src="{{mainUser.image_url}}">
     </div>
 
     <div class="user-information">
-      <h1 class="logo-text large">Name Smith</h1>
+      <h1 class="logo-text large">{{mainUser.first_name}} {{mainUser.last_name}}</h1>
       <div class="essential-info small">
         <ul>
-          <li>Age</li>
-          <li>Gender</li>
-          <li>Location</li>
+          <li>{{mainUser.age}}</li>
+          <li>{{mainUser.gender}}</li>
+          <li>{{mainUser.city}}, {{mainUser.state}}</li>
         </ul>
       </div>
 
       <div class="user-activities">
           <p class="small uppercase">Activities</p>
+          <div ng-repeat="activity in mainUserActivities">
+            <img class="activity-icon" ng-src="{{activity.image_url}}">
+          </div>
         </div>
 
       <div class="user-trips">

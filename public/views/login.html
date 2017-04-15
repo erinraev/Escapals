@@ -5,6 +5,7 @@
         <input  name="email" type="email" ng-model="userLogin.email" ng-required="true"><br>
         <p class="login-title">*<i class="fa fa-key" aria-hidden="true"></i> Password </p>
         <input name="password" type="password" ng-model="userLogin.password" ng-required="true"><br>
+        <p class="warning" ng-show="wrongLoginCheck()">*Wrong username/password</p>
           <button class="submit-button button" ng-click="getMainUser(userLogin)">Log In</button>
       </div>
     </form>

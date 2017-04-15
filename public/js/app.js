@@ -6,25 +6,32 @@ angular.module('escapalsApp', ['ui.router'])
       .state('home', {
           url: '/',
           templateUrl: 'views/main.html',
-          controller: 'mainCtrl'
+          controller: 'navCtrl',
+          resolve: {
+            mainUser: function () {
+              console.log('test')
+              return 'something'
+            // return mainService.getMainUser(userLogin);
+            }
+          }
       })
 
       .state('signup', {
        url: '/join-escapals',
        templateUrl: 'views/signup.html',
-       controller: 'mainCtrl'
+       controller: 'createUserCtrl'
      })
 
      .state('login', {
       url: '/log-in',
       templateUrl: 'views/login.html',
-      controller: 'mainCtrl'
+      controller: 'loginCtrl'
     })
 
     .state('create', {
      url: '/create-an-escape',
      templateUrl: 'views/create.html',
-     controller: 'mainCtrl'
+     controller: 'createEventCtrl'
    })
 
    .state('profile', {
@@ -36,18 +43,12 @@ angular.module('escapalsApp', ['ui.router'])
   .state('search', {
    url: '/find-escapes',
    templateUrl: 'views/findescape.html',
-   controller: 'mainCtrl'
+   controller: 'eventsCtrl'
  })
 
  .state('eventinfo', {
   url: '/escape-info',
   templateUrl: 'views/eventinfo.html',
-  controller: 'mainCtrl'
-})
-
- .state('test', {
-  url: '/test',
-  templateUrl: 'views/test.html',
   controller: 'mainCtrl'
 })
 

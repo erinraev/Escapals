@@ -31,6 +31,7 @@ angular.module('escapalsApp').service('mainService', function($http){
     });
   }
 
+
   this.createEvent = function(event) {
     return $http({
       method: 'POST',
@@ -63,32 +64,24 @@ angular.module('escapalsApp').service('mainService', function($http){
     });
   }
 
+
   this.getMainUser = function(userLogin) {
     var ourService = this;
     return $http({
       method: 'GET',
       url: '/api/users/'
     }).then(response => {
-
-      var mainUser = response.data.filter(function(user) {
+      var users = response.data;
+      function findUser(user) {
         return user.email === userLogin.email && user.password === userLogin.password;
-      })[0];
-
+      };
+      var mainUser = users.find(findUser);
       ourService.mainUser = mainUser;
+      ourService.mainUserActivities = mainUser.activityTypes;
       return mainUser;
-      // var users = response.data;
-      // users.forEach(function (user) {
-      //   if (userLogin.email == user.email && userLogin.password == user.password) {
-      //     this.mainUser = user;
-      //     console.log("mainUser", this.mainUser)
-      //     return this.mainUser;
-      //   } else {
-      //     console.log('user not found')
-      //   }
-      // });
-
     });
   }
+
 
 
 });

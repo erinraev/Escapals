@@ -100,8 +100,11 @@ p, span, li {
    position:relative;
 }*/
 
-.ng-hide {
-  display: none!important;
+.warning {
+  color: red;
+  margin: 0;
+  margin-left: auto;
+  margin-top: -8px;
 }
 
 /* ---- Header Styles ---- */
